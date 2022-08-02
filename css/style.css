@@ -1,0 +1,20 @@
+body{
+    background-color: rgb(243, 177, 177);
+}
+
+h1{
+    font-weight: normal;
+    text-align: center;
+    background-color: white;
+    padding: 20px 0;
+}
+.btn{
+    padding: 10px;
+}
+
+header{
+    text-align: center;
+    background-color: #333;
+    color: #ffffff;
+    padding: 10px 0;
+}
