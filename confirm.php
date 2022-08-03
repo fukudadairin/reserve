@@ -18,7 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- original CSS -->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="/reserve/css/style.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+
 
     <title>予約内容確認</title>
 </head>
@@ -58,8 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </table>
 
     <div class="d-grid gap-2">
-        <button class="btn btn-primary rounded-pill" type="submit">予約確認</button>
-        <button class="btn btn-secondary rounded-pill" type="button">戻る</button>
+        <a class="btn btn-primary rounded-pill" href="/reserve/complete.php/">予約確定</a>
+        <button class="btn btn-secondary rounded-pill" href="/">戻る</button>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
