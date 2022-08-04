@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(243, 177, 177);
+    background-color: #edf0f3;
 }
 
 h1{
@@ -17,4 +17,13 @@ header{
     background-color: #333;
     color: #ffffff;
     padding: 10px 0;
+}
+
+.bgcWhite{
+    background-color: white;
+}
+
+.complete_icon{
+    font-size: 100px;
+    color: #25b425;
 }

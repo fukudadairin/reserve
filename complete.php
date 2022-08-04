@@ -1,6 +1,4 @@
 <!-- 予約完了 -->
-
-<!-- 予約受付画面 -->
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location:/reserve/confirm.php/");
@@ -19,67 +17,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+    <!-- Bootstrap Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+
     <!-- original CSS -->
     <link rel="stylesheet" href="/reserve/css/style.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
 
-    <title>ご来店予約</title>
+
+    <title>予約完了</title>
 </head>
 
 <body>
     <header>SAMPLE　SHOP</header>
-    <h1>ご来店予約</h1>
+    <h1>予約完了</h1>
 
-    <form method="POST" class="m-3">
 
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">【1】予約日を選択</label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>予約日</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
+    <div class="card text-center">
+        <div class="card-body">
+            <i class="bi bi-check-lg complete_icon"></i>
+            <h2 class="card-title pb-3">予約が完了しました。</h2>
+            <div class="d-grid gap-2">
+                <a class="btn btn-primary rounded-pill" href="/reserve/">TOPへ戻る</a>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">【2】人数を選択</label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>人数</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-        </div>
+    </div>
 
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">【3】予約時間を選択</label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>時間</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">【4】予約者情報を入力</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="氏名">
-        </div>
-        <div class="mb-3">
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="メールアドレス">
-        </div>
-        <div class="mb-3">
-            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="電話番号">
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">【5】備考</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="備考欄"></textarea>
-        </div>
 
-        <div class="d-grid gap-2">
-            <button class="btn btn-primary rounded-pill" type="submit">確認画面へ</button>
-            <button class="btn btn-secondary rounded-pill" type="button">戻る</button>
-        </div>
-
-    </form>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

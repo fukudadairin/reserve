@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <header>SAMPLE　SHOP</header>
     <h1>予約内容確認</h1>
 
-    <table class="table">
+    <table class="table bgcWhite">
 
         <tbody>
             <tr>
@@ -59,9 +59,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </tbody>
     </table>
 
-    <div class="d-grid gap-2">
+    <div class="d-grid gap-2 mx-3">
         <a class="btn btn-primary rounded-pill" href="/reserve/complete.php/">予約確定</a>
-        <button class="btn btn-secondary rounded-pill" href="/">戻る</button>
+        <a class="btn btn-secondary rounded-pill" href="/reserve/">戻る</a>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
