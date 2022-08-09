@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">【1】予約日を選択</label>
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" name="reserve_date">
                 <option selected>予約日</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">【2】人数を選択</label>
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" name="reserve_num">
                 <option selected>人数</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">【3】予約時間を選択</label>
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" name="reserve_time">
                 <option selected>時間</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
@@ -59,17 +59,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">【4】予約者情報を入力</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="氏名">
+            <input type="text" class="form-control" placeholder="氏名" name="name">
         </div>
         <div class="mb-3">
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="メールアドレス">
+            <input type="email" class="form-control" placeholder="メールアドレス" name="email">
         </div>
         <div class="mb-3">
-            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="電話番号">
+            <input type="number" class="form-control" placeholder="電話番号" name="tel">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">【5】備考</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="備考欄"></textarea>
+            <textarea class="form-control" rows="3" placeholder="備考欄" name="comment"></textarea>
         </div>
 
         <div class="d-grid gap-2">
