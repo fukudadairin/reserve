@@ -59,10 +59,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </tbody>
     </table>
 
-    <div class="d-grid gap-2 mx-3">
-        <a class="btn btn-primary rounded-pill" href="/reserve/complete.php/">予約確定</a>
+    <form class="d-grid gap-2 mx-3">
+        <button class="btn btn-primary rounded-pill" type="submit">予約確定</button>
         <a class="btn btn-secondary rounded-pill" href="/reserve/">戻る</a>
-    </div>
+    </form>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
