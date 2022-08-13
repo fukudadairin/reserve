@@ -1,5 +1,22 @@
 <!-- 予約内容の確認 -->
 <?php
+
+echo "<pre>";
+session_start();
+
+
+$reserve_date=$_SESSION["RESERVE"]["reserve_date"];
+$reserve_num=$_SESSION["RESERVE"]["reserve_num"];
+$reserve_time=$_SESSION["RESERVE"]["reserve_time"];
+$name=$_SESSION["RESERVE"]["name"];
+$email=$_SESSION["RESERVE"]["email"];
+$tel=$_SESSION["RESERVE"]["tel"];
+$comment=$_SESSION["RESERVE"]["comment"];
+
+// var_dump($_SESSION["RESERVE"]);
+
+echo "</pre>";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location:/reserve/confirm.php/");
 }
@@ -34,27 +51,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <tbody>
             <tr>
                 <th scope="row">日時</th>
-                <td>2022年07月30日(土)17時00分</td>
+                <td colspan="2">2022年07月30日(土)17時00分</td>
             </tr>
             <tr>
                 <th scope="row">人数</th>
-                <td>4名</td>
+                <td colspan="2"><?= $reserve_date ?></td>
             </tr>
             <tr>
                 <th scope="row">氏名</th>
-                <td colspan="2">田中　ロドリゲス　太郎</td>
+                <td colspan="2"><?= $name ?></td>
             </tr>
             <tr>
                 <th scope="row">メールアドレス</th>
-                <td colspan="2">test@test</td>
+                <td colspan="2"><?= $email ?></td>
             </tr>
             <tr>
                 <th scope="row">電話番号</th>
-                <td colspan="2">1111111111</td>
+                <td colspan="2"><?= $tel ?></td>
             </tr>
             <tr>
                 <th scope="row">備考</th>
-                <td colspan="2">備考の内容が入る備考の内容が入る備考の内容が入る備考の内容が入る備考の内容が入る</td>
+                <td colspan="2"><?= $comment ?></td>
             </tr>
         </tbody>
     </table>
