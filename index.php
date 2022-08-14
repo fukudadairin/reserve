@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location:/reserve/confirm.php/");
     }
 
-    var_dump($_SESSION["RESERVE"]);
+    // var_dump($_SESSION["RESERVE"]);
     // var_dump($_SESSION["reserve_num"]);
     // var_dump($_SESSION["reserve_time"]);
     // var_dump($_SESSION["name"]);

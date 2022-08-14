@@ -1,6 +1,7 @@
 <!-- 予約内容の確認 -->
 <?php
 
+<<<<<<< HEAD
 // ———————————————————
 // DB接続
 // ———————————————————
@@ -9,10 +10,13 @@ require_once(dirname(__FILE__) . "/function.php");
 $pdo  = connect_db();
 
 
+=======
+>>>>>>> master
 echo "<pre>";
 session_start();
 
 
+<<<<<<< HEAD
 $reserve_date = $_SESSION["RESERVE"]["reserve_date"];
 $reserve_num = $_SESSION["RESERVE"]["reserve_num"];
 $reserve_time = $_SESSION["RESERVE"]["reserve_time"];
@@ -23,6 +27,17 @@ $comment = $_SESSION["RESERVE"]["comment"];
 
 var_dump($_SESSION["RESERVE"]);
 var_dump($reserve);
+=======
+$reserve_date=$_SESSION["RESERVE"]["reserve_date"];
+$reserve_num=$_SESSION["RESERVE"]["reserve_num"];
+$reserve_time=$_SESSION["RESERVE"]["reserve_time"];
+$name=$_SESSION["RESERVE"]["name"];
+$email=$_SESSION["RESERVE"]["email"];
+$tel=$_SESSION["RESERVE"]["tel"];
+$comment=$_SESSION["RESERVE"]["comment"];
+
+// var_dump($_SESSION["RESERVE"]);
+>>>>>>> master
 
 echo "</pre>";
 
@@ -83,7 +98,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </tr>
             <tr>
                 <th scope="row">人数</th>
+<<<<<<< HEAD
                 <td colspan="2"><?= $reserve_num ?></td>
+=======
+                <td colspan="2"><?= $reserve_date ?></td>
+>>>>>>> master
             </tr>
             <tr>
                 <th scope="row">氏名</th>
