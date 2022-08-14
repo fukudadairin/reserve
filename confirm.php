@@ -1,24 +1,52 @@
 <!-- 予約内容の確認 -->
 <?php
 
+// ———————————————————
+// DB接続
+// ———————————————————
+require_once(dirname(__FILE__) . "/config/config.php");
+require_once(dirname(__FILE__) . "/function.php");
+$pdo  = connect_db();
+
+
 echo "<pre>";
 session_start();
 
 
-$reserve_date=$_SESSION["RESERVE"]["reserve_date"];
-$reserve_num=$_SESSION["RESERVE"]["reserve_num"];
-$reserve_time=$_SESSION["RESERVE"]["reserve_time"];
-$name=$_SESSION["RESERVE"]["name"];
-$email=$_SESSION["RESERVE"]["email"];
-$tel=$_SESSION["RESERVE"]["tel"];
-$comment=$_SESSION["RESERVE"]["comment"];
+$reserve_date = $_SESSION["RESERVE"]["reserve_date"];
+$reserve_num = $_SESSION["RESERVE"]["reserve_num"];
+$reserve_time = $_SESSION["RESERVE"]["reserve_time"];
+$name = $_SESSION["RESERVE"]["name"];
+$email = $_SESSION["RESERVE"]["email"];
+$tel = $_SESSION["RESERVE"]["tel"];
+$comment = $_SESSION["RESERVE"]["comment"];
 
-// var_dump($_SESSION["RESERVE"]);
+var_dump($_SESSION["RESERVE"]);
+var_dump($reserve);
 
 echo "</pre>";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    header("Location:/reserve/confirm.php/");
+
+    $sql = "INSERT INTO reserve(reserve_date,reserve_num,reserve_time,name,email,tel,comment) VALUES(:reserve_date,:reserve_num,:reserve_time,:name,:email,:tel,:comment)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':reserve_date', $reserve_date, PDO::PARAM_STR);
+    $stmt->bindValue(':reserve_num', $reserve_num, PDO::PARAM_INT);
+    $stmt->bindValue(':reserve_time', $reserve_time, PDO::PARAM_STR);
+    $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+    $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+    $stmt->bindValue(':tel', $tel, PDO::PARAM_STR);
+    $stmt->bindValue(':comment', $comment, PDO::PARAM_STR);
+    $stmt->execute(); // 実行
+    $reserve1 = $stmt->fetch();
+
+    if ($reserve1) {
+        echo "aaaa";
+        // header("Location:/reserve/complete.php/");
+    } else {
+        echo "bbbb";
+        var_dump($reserve1);
+    }
 }
 
 ?>
@@ -55,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </tr>
             <tr>
                 <th scope="row">人数</th>
-                <td colspan="2"><?= $reserve_date ?></td>
+                <td colspan="2"><?= $reserve_num ?></td>
             </tr>
             <tr>
                 <th scope="row">氏名</th>
@@ -76,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </tbody>
     </table>
 
-    <form class="d-grid gap-2 mx-3">
+    <form class="d-grid gap-2 mx-3" method="POST">
         <button class="btn btn-primary rounded-pill" type="submit">予約確定</button>
         <a class="btn btn-secondary rounded-pill" href="/reserve/">戻る</a>
     </form>
