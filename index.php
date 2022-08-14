@@ -124,7 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 for ($i = 0; $i <= $ThisMonth_DayCount; $i++) :
                     $old_day = "{$i}day";
                 ?>
-                    <option value="<?= $i ?>"><?= date("m/d", strtotime($old_day)); ?></option>
+                    <option value="<?= date("Y-m-d", strtotime($old_day)); ?>"><?= date("m/d", strtotime($old_day)); ?></option>
                 <?php
 
                     var_dump($i);
@@ -160,9 +160,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             echo "is-invalid";
                                         }  ?>" name="reserve_time">
                 <option selected>時間</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>
             </select>
             <div class="invalid-feedback">
                 <?php echo $err["reserve_time"] ?>
