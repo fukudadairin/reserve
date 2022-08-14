@@ -21,8 +21,8 @@ $email = $_SESSION["RESERVE"]["email"];
 $tel = $_SESSION["RESERVE"]["tel"];
 $comment = $_SESSION["RESERVE"]["comment"];
 
-var_dump($_SESSION["RESERVE"]);
-var_dump($reserve);
+// var_dump($_SESSION["RESERVE"]);
+// var_dump($reserve);
 
 echo "</pre>";
 
@@ -38,14 +38,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindValue(':tel', $tel, PDO::PARAM_STR);
     $stmt->bindValue(':comment', $comment, PDO::PARAM_STR);
     $stmt->execute(); // 実行
-    $reserve1 = $stmt->fetch();
 
-    if ($reserve1) {
+
+    $sql = "SELECT reserve_date,reserve_num,reserve_time,name,email,tel,comment FROM reserve WHERE reserve_date =:reserve_date AND reserve_num =:reserve_num AND reserve_time =:reserve_time AND name =:name AND email =:email AND tel =:tel AND comment =:comment limit 1";
+    $stmt = $pdo->prepare($sql); //どれを使うのかを決める→SELECT文：INSERT文：UPDATE文：DELETE文：
+    $stmt->bindValue(':reserve_date', $reserve_date, PDO::PARAM_STR);
+    $stmt->bindValue(':reserve_num', $reserve_num, PDO::PARAM_INT);
+    $stmt->bindValue(':reserve_time', $reserve_time, PDO::PARAM_STR);
+    $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+    $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+    $stmt->bindValue(':tel', $tel, PDO::PARAM_STR);
+    $stmt->bindValue(':comment', $comment, PDO::PARAM_STR);
+    $stmt->execute();
+    $DB_InsertCheck = $stmt->fetch();
+
+
+    if ($DB_InsertCheck) {
         echo "aaaa";
-        // header("Location:/reserve/complete.php/");
+        header("Location:/reserve/complete.php/");
     } else {
         echo "bbbb";
-        var_dump($reserve1);
+
     }
 }
 
