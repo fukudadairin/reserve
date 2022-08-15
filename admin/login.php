@@ -1,8 +1,27 @@
 <!-- ログイン画面 -->
-
 <?php
+require_once(dirname(__FILE__) . "/../config/config.php");
+require_once(dirname(__FILE__) . "/../function.php");
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    header("Location:/reserve/admin/reserve_list.php/");
+
+    $login_id = $_POST["login_id"];
+    $login_password = $_POST["login_password"];
+
+    $pdo  = connect_db();
+    $sql = "SELECT login_id,login_password FROM shop WHERE login_id = :login_id AND login_password = :login_password LIMIT 1";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(":login_id", (int)$login_id, PDO::PARAM_INT);
+    $stmt->bindValue(":login_password", $login_password, PDO::PARAM_STR);
+    $stmt->execute();
+    $login_check = $stmt->fetch();
+
+    if($login_check){
+        header("Location:/reserve/admin/reserve_list.php/");
+    }
+
+
+
 }
 
 ?>
@@ -30,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-<header class="navbar">
+    <header class="navbar">
         <div class="container-fluid">
             <div class="navbar-brand">SAMPLE　SHOP</div>
             <form class="d-flex">
@@ -42,13 +61,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <h1>予約システムログイン</h1>
 
-    <form class="card text-center" method="POST" action="/reserve/admin/reserve_list.php/">
+    <form class="card text-center" method="POST">
         <div class="card-body">
             <div class="mb-3">
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ID">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ID" name="login_id">
             </div>
             <div class="mb-3">
-                <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="PASSWORD"> </div>
+                <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="PASSWORD" name="login_password">
+            </div>
             <div class="d-grid gap-2">
                 <button type="submit" class="btn btn-primary rounded-pill">ログイン</button>
             </div>
