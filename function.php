@@ -13,3 +13,11 @@ function connect_db()
     // PDO::FETCH_ASSOC：連番をトル
     return $pdo;
 }
+function time_format_dw($date)
+{
+    $format_date = null;
+    $week = array("日", "月", "火", "水", "木", "金", "土");
+    $format_date =  "(" . $week[date("w", strtotime($date))]. ")";
+
+    return $format_date;
+}

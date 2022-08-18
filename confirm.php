@@ -21,7 +21,7 @@ $email = $_SESSION["RESERVE"]["email"];
 $tel = $_SESSION["RESERVE"]["tel"];
 $comment = $_SESSION["RESERVE"]["comment"];
 
-// var_dump($_SESSION["RESERVE"]);
+var_dump($_SESSION["RESERVE"]);
 // var_dump($reserve);
 
 echo "</pre>";
@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <tbody>
             <tr>
                 <th scope="row">日時</th>
-                <td colspan="2">2022年07月30日(土)17時00分</td>
+                <td colspan="2"><?php echo date("Y年m月d日",strtotime($reserve_date)); ?><?php echo time_format_dw(date("Y-m-d",strtotime($reserve_date))) ?><?php echo date("H時i分",strtotime($reserve_time)); ?></td>
             </tr>
             <tr>
                 <th scope="row">人数</th>
